@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--
+	jQuery.fcs.js Demo
+	
+	Copyright (C)2011-2015 Kuh Jaeger, Inc. All rights reserved.
+-->
+<html>
+	<head>
+		<title>jQuery.fcs.js Demo</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="jquery-1.11.0.min.js"></script>
+		<script src="jquery.fcs.js"></script>
+
+		<style type="text/css">
+
+			.fcs {
+				border: solid 1px #ccccff;
+			}
+
+			.fcs2 {
+				border: solid 1px #ffcccc;
+			}
+
+			input[type="text"],
+			textarea {
+				margin-bottom: 10px;
+				padding: 4px 6px;
+				width: 300px;
+				border-radius: 4px 4px 4px 4px;
+			}
+			textarea {
+				height: 100px;
+			}
+			input[type="button"] {
+				margin-bottom: 10px;
+				padding: 4px 6px;
+				border: solid 1px #ccccff;
+				width: 100px;
+			}
+			input:focus,
+			textarea:focus {
+				outline: 1px #9999ff solid;
+			}
+			ul {
+				padding: 0;
+				margin: 0 0 10px 0;
+			}
+			li{
+				width: 80px;
+				padding: 0;
+				margin: 0;
+				padding-left: 0px;
+				display: inline-block;
+				list-style-position:outside;
+			}
+			div.button_area {
+				margin-top: 20px;
+			}
+			div.center {
+				text-align: center;
+			}
+			div.float_left {
+				float: left;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="fcs1 float_left">
+			<input name="i1" class="fcs" type="text" value=""><br>
+			<input name="i2" class="fcs" type="text" value=""><br>
+			<input name="i3" class="fcs" type="text" value=""><br>
+			<textarea name="i4" class="fcs"></textarea><br>
+
+			<ul>
+				<li><input name="check" class="fcs" type="checkbox" value="c1">1111</li>
+				<li><input name="check" class="fcs" type="checkbox" value="c2">2222</li>
+				<li><input name="check" class="fcs" type="checkbox" value="c3">3333</li>
+				<li><input name="check" class="fcs" type="checkbox" value="c4">4444</li>
+			</ul>
+
+			<ul>
+				<li><input name="radio" class="fcs" type="radio" value="c1">1111</li>
+				<li><input name="radio" class="fcs" type="radio" value="c2">2222</li>
+				<li><input name="radio" class="fcs" type="radio" value="c3">3333</li>
+				<li><input name="radio" class="fcs" type="radio" value="c4">4444</li>
+			</ul>
+
+			<div class="button_area center">
+				<input name="i5" class="fcs" type="button" value="cancel" onclick="alert('cancel');">
+				<input name="i6" class="fcs" type="button" value="submi" onclick="alert('submit');">
+			</div>
+		</div>
+
+		<div class="fcs1 float_left">
+			<input name="i12" class="fcs2" type="text" value=""><br>
+			<input name="i22" class="fcs2" type="text" value=""><br>
+			<input name="i32" class="fcs2" type="text" value=""><br>
+			<textarea name="i42" class="fcs2"></textarea><br>
+
+			<ul>
+				<li><input name="check2" class="fcs2" type="checkbox" value="c12">1111</li>
+				<li><input name="check2" class="fcs2" type="checkbox" value="c22">2222</li>
+				<li><input name="check2" class="fcs2" type="checkbox" value="c32">3333</li>
+				<li><input name="check2" class="fcs2" type="checkbox" value="c42">4444</li>
+			</ul>
+
+			<ul>
+				<li><input name="radio2" class="fcs2" type="radio" value="c12">1111</li>
+				<li><input name="radio2" class="fcs2" type="radio" value="c22">2222</li>
+				<li><input name="radio2" class="fcs2" type="radio" value="c32">3333</li>
+				<li><input name="radio2" class="fcs2" type="radio" value="c42">4444</li>
+			</ul>
+
+			<div class="button_area center">
+				<input name="i52" class="fcs2" type="button" value="cancel" onclick="alert('cancel');">
+				<input name="i62" class="fcs2" type="button" value="submit" onclick="alert('submit');">
+			</div>
+		</div>
+
+		<script>
+			(function ($) {
+				$(document).fcs(".fcs");
+				$(document).fcs(".fcs2");
+			})(jQuery);
+		</script>
+
+	</body>
+</html>
