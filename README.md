@@ -10,7 +10,7 @@ jQuery
 ## How to use this plugin
 1. include this jQuery and this plugin at the header.
 2. Add a className for elements you want to focus with ENTER KEY.
-3. call method "$(document).fcs(".className")";
+3. call method "$(document).fcs('.className')";
 4. if you add more than one className for elements, they will independently works of each other grouping by className. 
 
 ## How to move focus
