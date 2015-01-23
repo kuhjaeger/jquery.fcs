@@ -18,7 +18,7 @@ press ENTER KEY, the focus move forward. and press ENTER KEY with Shift KEY, the
 
 If the element is <INPUT><SELECT>, the focus is move forward or backward with ENTER KEY.
 
-If the element is <TEXTAREA>, the ENTER KEY is provide break line. pless Ctrl or Alt KEY with ENTER KEY to move focus.
+If the element is <TEXTAREA>, the ENTER KEY is provide break line. pless ENTER KEY with Ctrl or Alt KEY to move focus.
 
 ## Demo
 http://kuhjaeger.github.io/
