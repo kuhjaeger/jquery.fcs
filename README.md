@@ -4,7 +4,7 @@ jQuery plugin that move focus with ENTER Key, forward, backward, and grouping an
 ## Introduction
 This jQuery plugin provide UI, that move focus HTML elements with ENTER KEY, not only TAB KEY.
 
-## requirement
+## Requirement
 jQuery
 
 ## How to use this plugin
