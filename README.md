@@ -22,3 +22,7 @@ If the element is <TEXTAREA>, the ENTER KEY is provide break line. pless Ctrl or
 
 ## Notice
 This plugin needs a correct "unique name parameter" for all elements that you want to focus with ENTER KEY. Because Radio buttons and checkboxes have to use same name property for same group, this plugin judges next element to move focus by looks the name propery of elements and element type.
+
+## License
+This software is released under the MIT License.
+
