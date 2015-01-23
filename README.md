@@ -14,9 +14,9 @@ jQuery
 4. if you add more than one className for elements, they will independently works of each other grouping by className. 
 
 ## How to move focus
-press ENTER KEY, the focus move forward. and press Shift KEY with ENTER KEY, the focus move backward.
+press ENTER KEY, the focus move forward. and press ENTER KEY with Shift KEY, the focus move backward.
 
-If the element is <INPUT>, the focus is move forward or backward with ENTER KEY.
+If the element is <INPUT><SELECT>, the focus is move forward or backward with ENTER KEY.
 
 If the element is <TEXTAREA>, the ENTER KEY is provide break line. pless Ctrl or Alt KEY with ENTER KEY to move focus.
 
