@@ -1,9 +1,9 @@
 /* *
  * 
- * jQuery.fcs.js v1.0
+ * jQuery.fcs.js v1.1
  * 
  * MIT License.
- * (c) 2011, 2015 Kuh Jaeger, Inc.
+ * (c) 2005, 2014 jQuery Foundation, Inc.
  * 
  * */
 
@@ -15,7 +15,7 @@
 			$(selector).each(function() {
 				individual(this, $(this), selector);
 			});
-			return true;
+			return this;
 		} catch(e){
 			console.log(e.message);
 			return false;
@@ -27,7 +27,7 @@
 			var self = thisSelf;    // jQuery Object
 			var selector = thisSelector;
 			this.prevString = "";
-
+	
 			$.fn.getSelector = function () {
 				return selector;
 			};
@@ -39,36 +39,24 @@
 			self.focus(function (e) {
 				this.prevString = self.val();
 			});
-
-			self.keypress(function (e)
+			
+			// IE対応
+			self.keydown(function(e)
 			{
-				switch (e.keyCode) {
-					case 13: //return
-						this.prevString = self.val();
-						return false;
+				if (e.keyCode == 13 && (e.ctrlKey || e.altKey)) {
+					moveFocus(e);
+					return false;
 				}
 			});
 
-			self.keydown(function (e) {
+			self.keypress(function (e)
+			{
 				if (e.keyCode === 13) {
 					if (this.tagName.toUpperCase() === "TEXTAREA") {
-						if (e.shiftKey || e.ctrlKey || e.altKey) {
+						// コンビネーションキーまたは編集されていないTEXTAREAではフォーカス移動
+						if (e.shiftKey || e.ctrlKey || e.altKey || this.prevString === self.val()) {
 							moveFocus(e);
-						} else {
-							var textareaElement = self.get(0);
-							var position = textareaElement.selectionStart;
-
-							var text = this.value;
-							var length = this.length;
-
-							var before = text.substring(0, position);
-							var after = text.substring(position, length);
-
-							var newText = before + "\n" + after;
-							this.value = newText;
-							this.prevString = newText;
-
-							return true;
+							return false;
 						}
 					} else {
 						moveFocus(e);
@@ -94,7 +82,7 @@
 
 				for (var i = 0; i < fcs.length; i++) {
 
-					if (fcs[i].name === elem.name) {
+					if (fcs[i] === elem) {
 						fineded = true;
 					}
 					if (!fineded) {
@@ -108,35 +96,20 @@
 						next = fcs[i + 1];
 					}
 
-					if (type === "checkbox" || type === "radio")
+					if (fcs[i] !== elem)
 					{
-						if (fcs[i].name !== elem.name || fcs[i].value === elem.value)
-						{
-							if (i === fcs.length - 1) {
-								next = fcs[0];
-							} else {
-								next = fcs[i + 1];
-							}
-							break;
-						}
-					}
-					else
-					{
-						if (fcs[i].name !== elem.name)
-						{
-							if (i === fcs.length) {
-								next = fcs[0];
-							} else {
-								for (var j = i; j < fcs.length; j++)
-								{
-									next = fcs[j];
-									if (fcs[j].name !== elem.name) {
-										break;
-									}
+						if (i === fcs.length) {
+							next = fcs[0];
+						} else {
+							for (var j = i; j < fcs.length; j++)
+							{
+								next = fcs[j];
+								if (fcs[j] !== elem) {
+									break;
 								}
 							}
-							break;
 						}
+						break;
 					}
 				}
 				focus(next);
@@ -146,12 +119,12 @@
 			{
 				var fcs = $(selector + ":visible");
 				var next = elem;
-				var type = $("[name='" + next.name + "']").attr("type");
+				var type = elem.type;
 				var fineded = false;
 
 				for (var i = 0; i < fcs.length; i++)
 				{
-					if (fcs[i].name === elem.name) {
+					if (fcs[i] === elem) {
 						fineded = true;
 					}
 					if (!fineded) {
@@ -164,32 +137,19 @@
 						next = fcs[i - 1];
 					}
 
-					if (type === "checkbox" || type === "radio")
-					{
-						if (fcs[i].name !== elem.name || fcs[i].value === elem.value) {
-							if (i === 0)
+					if (fcs[i] === elem) {
+						if (i === 0) {
+							next = fcs[fcs.length - 1];
+						} else {
+							for (var j = i; j >= 0; j--)
 							{
-								next = fcs[fcs.length - 1];
-							} else {
-								next = fcs[i - 1];
-							}
-							break;
-						}
-					} else {
-						if (fcs[i].name === elem.name) {
-							if (i === 0) {
-								next = fcs[fcs.length - 1];
-							} else {
-								for (var j = i; j >= 0; j--)
-								{
-									next = fcs[j];
-									if (fcs[j].name !== elem.name) {
-										break;
-									}
+								next = fcs[j];
+								if (fcs[j] !== elem) {
+									break;
 								}
 							}
-							break;
 						}
+						break;
 					}
 				}
 				focus(next);
@@ -198,11 +158,16 @@
 			function focus(next)
 			{
 				next.focus();
+				
+				// TEXTAREAの編集チェック用変数
+				edited = false;
 
+				// 文字入力がある要素は、文字列の最後にカーソルを立てる
 				if (typeof next.select === "function") {
 					var text = next.value;
 					next.value = '';
 					next.value = text;
+					this.prevString = self.val();
 				}
 			}
 		}
