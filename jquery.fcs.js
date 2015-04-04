@@ -3,7 +3,7 @@
  * jQuery.fcs.js v1.1
  * 
  * MIT License.
- * (c) 2005, 2014 jQuery Foundation, Inc.
+ * (c) 2011, 2015 Kuh Jaeger, Inc.
  * 
  * */
 
