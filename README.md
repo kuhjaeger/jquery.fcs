@@ -15,10 +15,10 @@ jQuery
 3. call a method "$(document).fcs('.className');"
 4. if you add more than one className for elements, they will independently works of each other grouping by className. 
 
-1.jQueryをhead等で読み込んでください。
-2.エンターキーでフォーカスを移動したいフォームエレメントに同一のclassnameを付加してください。
-3.$(document).fcs('.classname');のようにメソッドをコールしてください。
-4.複数のclassnameを使用すると、そのclassname毎にグループ化されエンターキーでのフォーカスが移動します。
+1. jQueryをhead等で読み込んでください。
+2. エンターキーでフォーカスを移動したいフォームエレメントに同一のclassnameを付加してください。
+3. $(document).fcs('.classname');のようにメソッドをコールしてください。
+4. 複数のclassnameを使用すると、そのclassname毎にグループ化されエンターキーでのフォーカスが移動します。
 
 
 ## How to move focus
