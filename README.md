@@ -23,13 +23,12 @@ jQuery
 
 ## How to move focus
 press ENTER KEY, the focus move forward. and press ENTER KEY with Shift KEY, the focus move backward.<br>
-エンターキーを押すと前方に、SHIFTキーを押しながらエンターキーを押すと後方にフォーカスが移動します。
-
 If the element is &lt;INPUT&gt;&lt;SELECT&gt; and unedited &lt;TEXTAREA&gt;, the focus is move forward or backward with ENTER KEY.<br>
-エレメントがINPUTタグ、SELECTタグ、編集されていないTEXTAREAの場合、エンターキーの動作は上記のとおりです。
-
 If the element is edited &lt;TEXTAREA&gt;, the ENTER KEY provides break line. pless ENTER KEY with Ctrl or Alt KEY to move focus.<br>
-エレメントが編集されたTEXTAREAの場合、CTRLかALTキーとエンターキーを押すことで、フォーカスが前方に移動します。
+
+エンターキーを押すと前方に、SHIFTキーを押しながらエンターキーを押すと後方にフォーカスが移動します。<br>
+エレメントがINPUTタグ、SELECTタグ、編集されていないTEXTAREAの場合、エンターキーの動作は上記のとおりです。<br>
+エレメントが編集されたTEXTAREAの場合、CTRLかALTキーとエンターキーを押すことで、フォーカスが前方に移動します。<br>
 
 ## Demo
 http://kuhjaeger.github.io/
